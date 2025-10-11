@@ -200,12 +200,26 @@ Sprectre verwendet inline SVG-Icons, die über Handlebars-Partials eingebunden w
 
 In der Standard-Konfiguration machen [sowohl Ghost](https://github.com/TryGhost/Ghost/blob/2f09dd888024f143d28a0d81bede1b53a6db9557/PRIVACY.md) als auch [light-yt.js](https://www.labnol.org/internet/light-youtube-embeds/27941/), das Plugin, das ich für datenschutzfreundliche YouTube-Embeds verwende, Requests an Dritte. Datenschutzrechtlich sind diese unproblematisch. Man kann sie aber trotzdem umgehen.
 
-## JSDelivr-Requests (Ghost)
+## mithilfe eines Caching Proxies
+
+Einfach diese `docker-compose.yml` anpassen und verwenden: [hutt/spectre-docker-compose](https://github.com/hutt/spectre-docker-compose).
+
+Anschließend kann das YouTube-Proxying durch folgende Code-Injektion im Site Header aktiviert werden:
+
+```html
+<script>
+  // load YouTube video data via proxy
+  const YT_DATA_URL_PREFIX = "/proxy/youtube/data";
+  // load YouTube Thumbnails via proxy
+  const YT_THUMBNAIL_URL_PREFIX = "/proxy/youtube/thumbnail";
+</script>
+```
+
+## mithilfe eines Cloudflare-Workers
+
+### JSDelivr-Requests (Ghost)
 
 Für das Portal, die Suche und (falls aktiviert) die Kommentar-Funktion bindet Ghost Skripte und Stylesheets von JSDelivr ein. Es ist jedoch auch möglich, eigene URLs in der Konfigurationsdatei `config.[env].json` zu hinterlegen (👉 [offizielle Dokumentation](https://ghost.org/docs/config/#privacy)).
-
-> [!TIP]
-> Hier wird erklärt, wie man [Third-Party-Requests mithilfe eines einfachen nginx-Caching-Proxies eliminiert](https://github.com/hutt/spectre-docker-compose).
 
 Alternativ kann man auch [einen Cloudflare-Worker](https://gist.github.com/hutt/7b3c254a995849e6a06709a872840685) deployen, der Requests an JSDelivr proxied und cached. Wenn man diesen über die Route `meine-ghost-website.de/cdn-jsdelivr/*`, unter der selben Domain wie die Ghost-Instanz auch, verfügbar macht, können Third-Party-Requests vermieden werden. Die Konfigurationsdatei müsste man in diesem Fall lediglich um die folgenden Zeilen erweitern:
 
@@ -232,7 +246,7 @@ Alternativ kann man auch [einen Cloudflare-Worker](https://gist.github.com/hutt/
 }
 ```
 
-## Requests an YouTube (light-yt.js)
+### Requests an YouTube (light-yt.js)
 
 Ruft man eine Seite auf, in die ein YouTube-Video mit light-yt.js eingebettet wurde, macht das Plugin zwei Requests:
 
@@ -244,9 +258,9 @@ Auch diese Requests können mithilfe eines [nginx-Caching-Proxies](https://githu
 ```html
 <script>
   // load YouTube video data via proxy
-  const YT_DATA_URL_PREFIX = "/proxy/youtube/data";
+  const YT_DATA_URL_PREFIX = "/yt-proxy/data";
   // load YouTube Thumbnails via proxy
-  const YT_THUMBNAIL_URL_PREFIX = "/proxy/youtube/thumbnail";
+  const YT_THUMBNAIL_URL_PREFIX = "/yt-proxy/thumbnail";
 </script>
 ```
 

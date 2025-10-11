@@ -1,23 +1,23 @@
 # Spectre
 
-[![en](https://img.shields.io/badge/lang-en-red.svg)](README.md)
+[!de](README.de.md)
 
 ![Header Graphic](/assets/readme-header.png)
 
-A specter is roaming Europe. This is its theme. 👻 A [Ghost](https://github.com/TryGhost/Ghost) theme for politicians and local chapters of the German party Die Linke.
+A specter is haunting Europe. This is its theme. 👻 A [Ghost](https://github.com/TryGhost/Ghost) theme for politicians and local chapters of the German Left Party.
 
 # Demo
 
 - [spectre.hutt.io](https://spectre.hutt.io)  
 - [Ines Schwerdtner](https://inesschwerdtner.de)  
-- [BAG Betrieb und Gewerkschaft](https://betriebundgewerkschaft.de)  
+- [BAG Betrieb und Gewerkschaft](https://betriebundgewerkschaft.de)
 
 # Mockup & Screenshots
 
 ![Theme Mockup](/assets/mockup-inesschwerdtner.de.png)
 
 | [Live Demo](https://spectre.hutt.io/) | [Download](https://github.com/hutt/spectre/releases/) |
-|---|---|
+| --- | --- |
 
 # First Time Using a Ghost Theme?
 
@@ -25,25 +25,25 @@ Ghost uses a simple templating language called [Handlebars](http://handlebarsjs.
 
 **The main files are:**
 
-- `default.hbs` – the base template that contains the global header and footer  
-- `home.hbs` – the homepage  
-- `index.hbs` – the main template for listing posts  
-- `post.hbs` – the template for displaying individual posts  
-- `page.hbs` – used for standalone pages  
-- `tag.hbs` – used for tag archives, e.g. all posts with the tag `news`  
-- `author.hbs` – used for author archives, e.g. all posts by Jamie  
+- `default.hbs` – The parent template containing the global header/footer  
+- `home.hbs` – The homepage  
+- `index.hbs` – The primary template for generating a list of posts  
+- `post.hbs` – The template for displaying individual posts  
+- `page.hbs` – Used for standalone pages  
+- `tag.hbs` – Used for tag archives, e.g., “all posts tagged `news`”  
+- `author.hbs` – Used for author archives, e.g., “all posts by Jamie”
 
-You can also create custom templates by adding a page slug to the template filename. For example:
+You can also create custom templates by adding the page slug to the template filename. For example:
 
-- `page-about.hbs` – custom template for an `/about/` page  
-- `tag-news.hbs` – custom template for the `/tag/news/` archive  
-- `author-ines.hbs` – custom template for the `/author/ines/` archive  
+- `page-about.hbs` – Custom template for an `/about/` page  
+- `tag-news.hbs` – Custom template for the `/tag/news/` archive  
+- `author-ines.hbs` – Custom template for the `/author/ines/` archive
 
 # Routes
 
-This theme supports a static homepage as well as a blog index. To set a static homepage at `/`, you must customize the [routes.yaml](routes.yaml) file.
+This theme supports a static homepage as well as a blog index page. To set a static homepage at `/`, you need to adjust the [routes.yaml file](routes.yaml).
 
-For example (the slug for the homepage in this example is `start`, hence `data: page.start`):
+For example (the slug of the homepage is `start`, so we use `data: page.start`):
 
 ```
 routes:
@@ -69,22 +69,24 @@ collections:
 
 taxonomies:
   tag: /tag/{slug}/
-  author: /author/{slug}/
+  author: /autor_in/{slug}/
 ```
 
-**Note:** Collections must be listed in the correct order. Content that matches an earlier collection’s filter (e.g. posts tagged `#termin` in the routes file) won’t appear in later collections (e.g. `/blog/`). If `/blog/` were defined before `/termine/archiv/`, the Termine collection would be empty because those posts would already belong to `/blog/`.
+⚠️ **Collections must be listed in the correct order.** Posts assigned by a filter in an earlier collection (e.g., those tagged `#termin`) cannot appear in subsequent collections (e.g., `/blog/`), so `/blog/` should not include a filter to exclude press releases or events.
 
-More about collections in the [official documentation](https://ghost.org/tutorials/content-collections/).
+Example: If the `/blog/` collection is defined before `/termine/archiv/` in the routes file, the events collection will be empty because those posts have already been assigned to `/blog/`.
+
+Learn more about collections in the [official Ghost documentation](https://ghost.org/tutorials/content-collections/).
 
 # Events and Press Releases
 
-As shown above, this theme also supports custom pages for events and press releases, so these post types don’t appear alongside blog articles in the main index.
+As shown in the `routes.yaml` example above, this theme also supports custom pages for events and press releases so they don’t appear alongside regular posts in the blog index.
 
 ## Events
 
-### Add an Events Collection to routes.yaml
+### Add the Events Collection to routes.yaml
 
-Add the following under `collections:` in `routes.yaml`:
+Add the following lines under the `collections:` block in `routes.yaml`:
 
 ```
 collections:
@@ -96,17 +98,17 @@ collections:
 
 ### Create an Events Page
 
-In Ghost Admin, create a new page titled “Termine” (slug `termine`), add your content, then select the `Termine` template in the page settings sidebar. The page will display the five most recent events below the main content.
+Create a page in the editor, name it (e.g., “Termine” with slug `termine`), and fill in the content. Then select the `Termine` template in the page settings sidebar. The page will now display the five most recent events below its main content.
 
 ### Add a New Event
 
-Create a new post, include event details in the title (e.g. `31.12.2024: New Year’s Eve Celebration`), and tag it with `#termin`. This ensures it appears only on the Events page and archive (`/termine/archiv`), not in the main blog index.
+To add an event, create a new post and include the event details. It’s recommended to put the event date in the post title (e.g., `31.12.2024: Silvesterfeier`). Tag the post with `#termin` to ensure it appears only on the Events page (and the Events archive at `/termine/archiv`), not in the main blog index.
 
 ## Press Releases
 
-### Add a Press Releases Collection to routes.yaml
+### Add the Press Releases Collection to routes.yaml
 
-Under `collections:` in `routes.yaml`:
+Add the following lines under the `collections:` block in `routes.yaml`:
 
 ```
 collections:
@@ -118,33 +120,33 @@ collections:
 
 ### Create a Press Releases Page
 
-Create a page titled “Presse” (slug `presse`), add contact info or press photos, then choose the `Presse` template in the page settings. It will list the five latest press releases below the page content.
+Create a page, name it (e.g., “Presse” with slug `presse`), and add content such as press contacts or photos. Then select the `Presse` template in the page settings sidebar. The page will now display the five most recent press releases below its main content.
 
 ### Add a New Press Release
 
-Create a new post, tag it with `#pressemitteilung`, and it will appear only on the Press page and archive (`/presse/mitteilungen`), not in the main blog.
+To add a press release, create a new post, tag it with `#pressemitteilung`, and it will appear only on the Press Releases page (and `/presse/mitteilungen` archive), not in the main blog index.
 
 # Privacy-Friendly YouTube Embeds
 
-This theme enables GDPR-compliant YouTube embeds using [light-yt.js](https://www.labnol.org/internet/light-youtube-embeds/27941/) by Amit Agarwal.
+This theme enables GDPR-compliant YouTube embeds using [light-yt.js](https://www.labnol.org/internet/light-youtube-embeds/27941/) by [Amit Agarwal](https://github.com/labnol).
 
-## Embed a YouTube Video
+## Embedding a YouTube Video
 
-1. Copy the YouTube video ID (e.g. for `https://www.youtube.com/watch?v=dQw4w9WgXcQ` the ID is `dQw4w9WgXcQ`).  
-2. In the editor, add an HTML block where the video should appear.  
-3. Insert:
+1. Copy the YouTube video ID (from `https://www.youtube.com/watch?v=dQw4w9WgXcQ`, the ID is `dQw4w9WgXcQ`).  
+2. In the Ghost editor, add an HTML block where the video should appear.  
+3. Insert the following code, replacing `VideoID` with your copied ID:
 
    ```
    <div class="youtube-player" data-id="VideoID"></div>
    ```
 
-   replacing `VideoID` with your copied ID.
+   (Example: `<div class="youtube-player" data-id="dQw4w9WgXcQ"></div>`)
 
-Save this block as a snippet to reuse it easily.
+Save this block as a snippet in Ghost so you don’t have to retype it each time.
 
-# Google News Sitemap
+# Google News–Compatible Sitemap
 
-This theme can generate [Google News–compatible sitemaps](https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap). Add a route:
+This theme can generate [Google News–compatible sitemaps](https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap). Just define a route with the sitemap template as shown:
 
 ```
 routes:
@@ -153,25 +155,25 @@ routes:
     content_type: text/html
 ```
 
-Then submit `https://your-site.com/sitemap/` in Google Search Console.
+Then submit the sitemap URL (`https://your-site.com/sitemap/`) in Google Search Console.
 
 # Automatic Logo Generation
 
-For best performance, upload your logo as an SVG. If none is provided, Spectre generates a text-based logo from your site title.
+For faster load times, upload your logo in SVG format. If you don’t, Spectre will generate a logo from your site title.
 
 # Development
 
-Spectre is built with Gulp/PostCSS. You need [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com/), and [Gulp](https://gulpjs.com/) installed globally. From the theme root:
+Spectre themes are compiled with Gulp/PostCSS. You need [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com/), and [Gulp](https://gulpjs.com) installed globally. Then run from the theme’s root:
 
 ```
 # Install dependencies
 yarn install
 
-# Start dev server
+# Start development server
 yarn dev
 ```
 
-Changes to `/assets/css/` automatically compile into `/assets/built/`. To package the theme:
+Any changes in `/assets/css/` will automatically compile into `/assets/built/`. To package the theme:
 
 ```
 # Create zip archive
@@ -180,42 +182,33 @@ yarn zip
 
 # PostCSS Features
 
-- [Autoprefixer](https://github.com/postcss/autoprefixer) – automatically adds vendor prefixes for CSS features.
+- [Autoprefixer](https://github.com/postcss/autoprefixer) – Automatically handles vendor prefixes for CSS features.
 
 # Performance Optimizations
 
-Spectre uses resource preloading, concatenated and minified CSS/JS, critical inline CSS, and inline SVG icons instead of icon fonts.
+Spectre uses several techniques to speed up page loads: preloading key assets, bundling and minifying CSS/JS, critical inline CSS, and embedding icons as SVGs instead of icon fonts.
 
 ## Critical Inline CSS
 
-To speed up [First Contentful Paint](https://web.dev/articles/fcp), Spectre uses [penthouse](https://github.com/pocketjoso/penthouse) to generate critical CSS for post, page, tag, and index templates, injected via Handlebars partials (`default.hbs` and `partials/components/inline-css.hbs`). Run `yarn critical` to regenerate.
+To improve the time to first contentful paint, Spectre uses [penthouse](https://github.com/pocketjoso/penthouse) to generate critical CSS for post, page, tag, and index templates. These styles are included via Handlebars partials (`default.hbs` and `partials/components/inline-css.hbs`). Run `yarn critical` to regenerate.
 
 ## SVG Icons
 
-All icons live in `/partials/icons`. Include an icon with:
+Spectre includes inline SVG icons in `/partials/icons`. Use an icon with:
 
 ```
 {{> "icons/rss"}}
 ```
 
-Additional SVGs can be added to the folder.
+Add new icons by placing them in `/partials/icons`.
 
-# Eliminating Third-Party Requests
+# Avoiding All Third-Party Requests
 
-By default, both [Ghost](https://github.com/TryGhost/Ghost/blob/2f09dd888024f143d28a0d81bede1b53a6db9557/PRIVACY.md) and light-yt.js make third-party requests. While they’re generally safe, you can avoid them.
+By default, Ghost and light-yt.js make requests to external services. While usually privacy-safe, you can avoid them entirely.
 
-## JSDelivr Requests (Ghost)
+## Using a Caching Proxy
 
-Ghost loads Portal, Search, and Comments scripts from JSDelivr. You can override these URLs in `config.[env].json` (see [docs](https://ghost.org/docs/config/#privacy)).
-
-> [!TIP]
-> Eliminate third-party requests with a simple nginx caching proxy: [hutt/spectre-docker-compose](https://github.com/hutt/spectre-docker-compose)
-
-Alternatively, deploy a Cloudflare Worker to proxy and cache JSDelivr under your domain. Update your config to use `/cdn-jsdelivr/` instead of `/proxy/`.
-
-## YouTube Requests (light-yt.js)
-
-light-yt.js makes two requests: one to `youtube-nocookie.com` for JSON data and another to `i.ytimg.com` for the thumbnail. Proxy these via Nginx or a Cloudflare Worker and set:
+Adjust this `docker-compose.yml` to use [hutt/spectre-docker-compose](https://github.com/hutt/spectre-docker-compose), then enable YouTube proxying with:
 
 ```
 <script>
@@ -224,8 +217,33 @@ light-yt.js makes two requests: one to `youtube-nocookie.com` for JSON data and 
 </script>
 ```
 
+## Using a Cloudflare Worker
+
+### JSDelivr for Ghost
+
+Override portal, search, and comments URLs in `config.[env].json` or deploy a Cloudflare Worker to proxy and cache JSDelivr requests under `/cdn-jsdelivr/*`. Update:
+
+```
+{
+  "portal": {
+    "url": "/cdn-jsdelivr/npm/@tryghost/portal@~{version}/umd/portal.min.js"
+  },
+  ...
+}
+```
+
+### YouTube via Worker
+
+light-yt.js fetches metadata from `youtube-nocookie.com` and thumbnails from `i.ytimg.com`. You can proxy these via an nginx cache or Cloudflare Worker at `/yt-proxy/*` and configure:
+
+```
+<script>
+  const YT_DATA_URL_PREFIX = "/yt-proxy/data";
+  const YT_THUMBNAIL_URL_PREFIX = "/yt-proxy/thumbnail";
+</script>
+```
+
 # Copyright & License
 
-Copyright (c) 2013–2023 [Ghost Foundation](https://ghost.org);  
-2023–2024 [Jannis Hutt](https://hutt.io).  
-Based on [Source](https://github.com/TryGhost/Source) by the Ghost Foundation. Released under the [MIT License](LICENSE).
+Copyright (c) 2013–2023 [Ghost Foundation](https://ghost.org); 2023–2025 [Jannis Hutt](https://hutt.io).  
+Based on [Source](https://github.com/TryGhost/Source) by Ghost Foundation. Licensed under the MIT License.  
