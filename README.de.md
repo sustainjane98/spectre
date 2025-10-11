@@ -204,7 +204,10 @@ In der Standard-Konfiguration machen [sowohl Ghost](https://github.com/TryGhost/
 
 Für das Portal, die Suche und (falls aktiviert) die Kommentar-Funktion bindet Ghost Skripte und Stylesheets von JSDelivr ein. Es ist jedoch auch möglich, eigene URLs in der Konfigurationsdatei `config.[env].json` zu hinterlegen (👉 [offizielle Dokumentation](https://ghost.org/docs/config/#privacy)).
 
-Ich habe [einen Cloudflare-Worker](https://gist.github.com/hutt/7b3c254a995849e6a06709a872840685) geschrieben, der Requests an JSDelivr proxied und cached. Wenn man diesen über die Route `meine-ghost-website.de/cdn-jsdelivr/*`, unter der selben Domain wie die Ghost-Instanz auch, verfügbar macht, können Third-Party-Requests vermieden werden. Die Konfigurationsdatei müsste man in diesem Fall lediglich um die folgenden Zeilen erweitern:
+> [!TIP]
+> Hier wird erklärt, wie man [Third-Party-Requests mithilfe eines einfachen nginx-Caching-Proxies eliminiert](https://github.com/hutt/spectre-docker-compose).
+
+Alternativ kann man auch [einen Cloudflare-Worker](https://gist.github.com/hutt/7b3c254a995849e6a06709a872840685) deployen, der Requests an JSDelivr proxied und cached. Wenn man diesen über die Route `meine-ghost-website.de/cdn-jsdelivr/*`, unter der selben Domain wie die Ghost-Instanz auch, verfügbar macht, können Third-Party-Requests vermieden werden. Die Konfigurationsdatei müsste man in diesem Fall lediglich um die folgenden Zeilen erweitern:
 
 ```json
 {
@@ -236,14 +239,14 @@ Ruft man eine Seite auf, in die ein YouTube-Video mit light-yt.js eingebettet wu
 - Von `https://www.youtube-nocookie.com` wird ein JSON-Objekt mit Informationen zum eingebetteten Video abgerufen
 - Das Thumbnail wird von `https://i.ytimg.com` geladen.
 
-Auch diese Requests können mithilfe eines [Cloudflare-Workers](https://gist.github.com/hutt/62e9355afb0d4ff0eeecd39bc51652de) geproxied werden. Stellt man den Worker mithilfe einer Route, z.B. `meine-ghost-website.de/yt-proxy/*` (unter der selben Domain wie die Ghost-Instanz auch) zur Verfügung, kann man die alternativen URLs zum Laden dieser Daten mithilfe eines Script-Tags im globalen Site-Header hinterlegen:
+Auch diese Requests können mithilfe eines [nginx-Caching-Proxies](https://github.com/hutt/spectre-docker-compose) oder mit einem [Cloudflare-Workers](https://gist.github.com/hutt/62e9355afb0d4ff0eeecd39bc51652de) geproxied werden. Stellt man den Worker mithilfe einer Route, z.B. `meine-ghost-website.de/yt-proxy/*` (unter der selben Domain wie die Ghost-Instanz auch) zur Verfügung, kann man die alternativen URLs zum Laden dieser Daten mithilfe eines Script-Tags im globalen Site-Header hinterlegen:
 
 ```html
 <script>
   // load YouTube video data via proxy
-  const YT_DATA_URL_PREFIX = "/yt-proxy/data";
+  const YT_DATA_URL_PREFIX = "/proxy/youtube/data";
   // load YouTube Thumbnails via proxy
-  const YT_THUMBNAIL_URL_PREFIX = "/yt-proxy/thumbnail";
+  const YT_THUMBNAIL_URL_PREFIX = "/proxy/youtube/thumbnail";
 </script>
 ```
 
