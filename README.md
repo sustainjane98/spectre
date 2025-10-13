@@ -19,6 +19,36 @@ A specter is haunting Europe. This is its theme. 👻 A [Ghost](https://github.c
 | [Live Demo](https://spectre.hutt.io/) | [Download](https://github.com/hutt/spectre/releases/) |
 | --- | --- |
 
+# Quick Start
+
+With my manually customized Docker image (repository: [hutt/spectre-docker-compose](https://github.com/hutt/spectre-docker-compose/tree/main)), a website with the Spectre theme can be deployed in under 3 minutes:
+
+```bash
+# Clone the repository & change into the working directory (working directory here is "my-website.com")
+git clone https://github.com/hutt/spectre-docker-compose.git my-website.com && cd my-website.com
+
+# Copy the template for the environment variables file and adapt it to your needs
+cp example.env .env
+nano .env # Adjust: domain, email, password, blog title...
+
+# Start the dependencies and bring up the containers:
+docker compose up -d
+
+# Follow the logs to see if everything worked
+docker compose logs -f ghost-bootstrap
+```
+
+[1](https://openl.io/translate/markdown)
+[2](https://markdowntotext.com)
+[3](https://otranslator.com/intro/Markdown)
+[4](https://www.markdownguide.org/tools/simpleen/)
+[5](https://products.groupdocs.app/translation/markdown)
+[6](https://simpleen.io/blog/translate-markdown-files)
+[7](https://openl.io/de/translate/markdown)
+[8](https://tools.newzone.top/en/md-translator)
+[9](https://markdowntoword.net)
+[10](https://markdownlivepreview.com)
+
 # First Time Using a Ghost Theme?
 
 Ghost uses a simple templating language called [Handlebars](http://handlebarsjs.com/) for its themes.

@@ -1,6 +1,6 @@
 # Spectre
 
-[![en](https://img.shields.io/badge/lang-en-red.svg)](README.md)
+![en](https://img.shields.io/badge/lang-en-red.svg)](README.md)
 
 ![Header Graphic](/assets/readme-header.png)
 
@@ -18,6 +18,25 @@ Ein Gespenst geht um in Europa. Dies ist sein Theme. 👻 [Ghost](https://github
 
 |[Live Demo](https://spectre.hutt.io/)|[Download](https://github.com/hutt/spectre/releases/)|
 |---|---|
+
+# Schnellstart
+
+Mit meinem manuell angepassten Docker-Image (Repository: [hutt/spectre-docker-compose](https://github.com/hutt/spectre-docker-compose/tree/main)) kann eine Website mit Spectre-Theme in unter 3 Minuten deployed werden:
+
+```bash
+# Repository klonen & ins Arbeitsverzeichnis wechseln (Arbeitsverzeichnis ist hier "meine-website.de")
+git clone https://github.com/hutt/spectre-docker-compose.git meine-website.de && cd meine-website.de
+
+# Vorlage für Datei mit Umgebumngsvariablen kopieren und nach eigenen Bedürfnissen anpassen
+cp example.env .env
+nano .env # Anpassen: Domain, E-Mail, Passwort, Blog-Titel...
+
+# Deps starten und Container hochfahren:
+docker compose up -d
+
+# Logs verfolgen, um etwaige Fehler zu entdecken
+docker compose logs -f ghost-bootstrap
+```
 
 # Erstmalige Verwendung eines Ghost-Themes?
 
