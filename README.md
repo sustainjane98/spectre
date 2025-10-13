@@ -38,17 +38,6 @@ docker compose up -d
 docker compose logs -f ghost-bootstrap
 ```
 
-[1](https://openl.io/translate/markdown)
-[2](https://markdowntotext.com)
-[3](https://otranslator.com/intro/Markdown)
-[4](https://www.markdownguide.org/tools/simpleen/)
-[5](https://products.groupdocs.app/translation/markdown)
-[6](https://simpleen.io/blog/translate-markdown-files)
-[7](https://openl.io/de/translate/markdown)
-[8](https://tools.newzone.top/en/md-translator)
-[9](https://markdowntoword.net)
-[10](https://markdownlivepreview.com)
-
 # First Time Using a Ghost Theme?
 
 Ghost uses a simple templating language called [Handlebars](http://handlebarsjs.com/) for its themes.
