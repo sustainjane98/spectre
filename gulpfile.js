@@ -51,7 +51,7 @@ function hbs(done) {
 function css(done) {
     pump(
         [
-            src("assets/css/screen.css", { sourcemaps: true }),
+            src(["assets/css/screen.css", "assets/css/fonts/gilroy.css"], { sourcemaps: true }),
             postcss([easyimport, autoprefixer(), cssnano()]),
             dest("assets/built/", { sourcemaps: "." }),
             livereload(),
