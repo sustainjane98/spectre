@@ -127,8 +127,20 @@ function critical(done) {
     const categories = [
         {
             name: "post",
-            url: "https://do.nrw.linksjugend-solid.de",
+            url: "https://do.nrw.linksjugend-solid.de/plenum/",
         },
+        {
+            name: "page",
+            url: "https://do.nrw.linksjugend-solid.de/about_us/"
+        },
+        {
+            name: "tag",
+            url: "https://do.nrw.linksjugend-solid.de/tag/article/"
+        },
+        {
+            name: "index",
+            url: "https://do.nrw.linksjugend-solid.de"
+        }
     ];
 
     categories.forEach((category) => {
