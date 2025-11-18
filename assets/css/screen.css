@@ -1738,7 +1738,6 @@ Search                         LOGO                    Login Subscribe
     font-weight: 550;
     letter-spacing: 0.025em;
     text-transform: uppercase;
-    border-bottom: 1px solid var(--color-border);
 }
 
 .gh-featured-feed {
@@ -2170,7 +2169,6 @@ ul.icons li .icon i:before {
     font-weight: 550;
     letter-spacing: 0.025em;
     text-transform: uppercase;
-    border-bottom: 1px solid var(--color-border);
 }
 
 .gh-about {
@@ -3519,7 +3517,6 @@ main:has(article.tag-hash-pressemitteilung) + .gh-recommended-posts {
     gap: var(--grid-gap);
     grid-column: 1 / -1;
     padding-bottom: clamp(40px, 2.73vw + 29.09px, 64px);
-    border-bottom: 1px solid var(--color-border);
 }
 
 .gh-archive.has-image .gh-archive-inner {
