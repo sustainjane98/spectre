@@ -490,7 +490,7 @@ a:hover {
     letter-spacing: inherit;
     line-height: 1.1;
     border: 0;
-    background-color: transparent;
+    background-color: var(--color-white);
     outline: none;
     transition: 0.3s ease-in-out;
 }
