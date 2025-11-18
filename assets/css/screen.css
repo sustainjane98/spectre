@@ -94,11 +94,10 @@ production stylesheet in assets/built/screen.css
 
 @supports (font-variation-settings: normal) {
     :root {
-        --font-sans-title: "Work Sans VF", BlinkMacSystemFont, "Segoe UI",
-            "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-            "Helvetica Neue", sans-serif;
-        --font-sans: "Inter VF", "Helvetica Neue", "Elza", "Gotham", "Lato",
-            "Segoe UI", "Roboto", sans-serif;
+        --font-sans-title: "Gilroy",
+        "Helvetica Neue", sans-serif;
+        --font-sans: "Gilroy",
+        "Helvetica Neue", sans-serif;
     }
 }
 
