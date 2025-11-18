@@ -3657,7 +3657,6 @@ main:has(article.tag-hash-pressemitteilung) + .gh-recommended-posts {
     margin-bottom: 100px;
     padding-block: 28px;
     font-weight: 550;
-    border-block: 1px solid var(--color-border);
 }
 
 .gh-footer-logo {
