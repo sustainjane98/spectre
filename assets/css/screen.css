@@ -61,8 +61,8 @@ production stylesheet in assets/built/screen.css
     --color-black: #000000;
     --color-primary-text: var(--color-light-gray);
     --color-secondary-text: rgb(0 0 0 / 0.5);
-    --color-border: rgb(0 0 0 / 0.08);
-    --color-dark-border: rgb(0 0 0 / 0.5);
+    --color-border: var(--color-light-gray);
+    --color-dark-border: var(--color-mid-gray);
     --color-dielinke-rot: #ff0000;
     --color-dielinke-dunkelrot: #6f003c;
     --color-dielinke-dunkelgruen: #004b5b;
