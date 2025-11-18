@@ -62,7 +62,7 @@ production stylesheet in assets/built/screen.css
     --color-primary-text: var(--color-light-gray);
     --color-secondary-text: rgb(0 0 0 / 0.5);
     --color-border: var(--color-light-gray);
-    --color-dark-border: rgb(0 0 0 / 0.5);
+    --color-dark-border: var(--color-light-gray);
     --color-dielinke-rot: #ff0000;
     --color-dielinke-dunkelrot: #6f003c;
     --color-dielinke-dunkelgruen: #004b5b;
@@ -1981,7 +1981,6 @@ Search                         LOGO                    Login Subscribe
     font-weight: 550;
     letter-spacing: 0.025em;
     text-transform: uppercase;
-    border-bottom: 1px solid var(--color-border);
 }
 
 .gh-container-listposts-title {
