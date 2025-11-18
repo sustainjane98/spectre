@@ -12,7 +12,7 @@
     {{> "components/inline-css"}}
 
     {{!-- Preload main styles and scripts for better performance --}}
-    <link rel="preload" as="script" href="{{asset " built/source.js"}}">
+    <link rel="preload" as="script" href="{{asset "built/source.js"}}">
 
     {{!-- Preload @site.logo (deactivated as long preload doesen't support <picture> sources in different formats --}}
         {{#if @site.logo}}
@@ -22,13 +22,13 @@
         {{/if}}
 
         {{!-- defer loading of uncritical css --}}
-        <link rel="preload" as="style" href="{{asset " built/screen.css"}}"
+        <link rel="preload" as="style" href="{{asset "built/screen.css"}}"
             onload="this.onload=null;this.rel='stylesheet'">
-        <link rel="preload" as="style" href="{{asset " built/gilroy.css"}}"
+        <link rel="preload" as="style" href="{{asset "built/gilroy.css"}}"
             onload="this.onload=null;this.rel='stylesheet'">
         <noscript>
-            <link rel="stylesheet" type="text/css" href="{{asset " built/screen.css"}}">
-            <link rel="stylesheet" type="text/css" href="{{asset " built/gilroy.css"}}">
+            <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}">
+            <link rel="stylesheet" type="text/css" href="{{asset "built/gilroy.css"}}">
         </noscript>
 
         {{!-- print css --}}
