@@ -1865,6 +1865,10 @@ Search                         LOGO                    Login Subscribe
     display: none;
 }
 
+.gh-navigation-menu li:hover {
+    color: var(--color-dielinke-rot)
+}
+
 .gh-more {
     display: none;
     grid-column: 1 / -1;
