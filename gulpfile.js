@@ -139,7 +139,7 @@ function critical(done) {
         },
         {
             name: "index",
-            url: "https://do.nrw.linksjugend-solid.de"
+            url: "https://do.nrw.linksjugend-solid.de/"
         }
     ];
 

@@ -3619,6 +3619,10 @@ main:has(article.tag-hash-pressemitteilung) + .gh-recommended-posts {
     color: var(--color-light-gray);
 }
 
+.gh-footer svg {
+    fill: currentColor;
+}
+
 @media (max-width: 991px) {
     .gh-footer {
         margin-top: 12vw;
