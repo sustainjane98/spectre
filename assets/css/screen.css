@@ -1866,7 +1866,7 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-navigation-menu li:hover {
-    color: var(--color-dielinke-rot)
+    color: var(--ghost-accent-color)
 }
 
 .gh-more {
