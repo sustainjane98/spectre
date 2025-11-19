@@ -5,13 +5,13 @@
             <a class="gh-navigation-logo is-title" href="{{@site.url}}">
                 {{#if @site.logo}}
                     <picture>
-                        <source 
+                        <source
                             srcset="{{img_url @site.logo size="xs" format="avif"}} 1x,
                                     {{img_url @site.logo size="s" format="avif"}} 2x"
                             type="image/avif"
                         >
                         <!-- Serve the WebP format if the browser supports it -->
-                        <source 
+                        <source
                             srcset="{{img_url @site.logo size="xs" format="webp"}} 1x,
                                     {{img_url @site.logo size="s" format="webp"}} 2x"
                             type="image/webp"
@@ -41,22 +41,9 @@
         </nav>
 
         <div class="gh-navigation-actions">
-            {{#unless @site.members_enabled}}
-                {{> "search-toggle"}}
-            {{else}}
-                {{> "search-toggle"}}
-                <div class="gh-navigation-members">
-                    {{#unless @member}}
-                        {{#unless @site.members_invite_only}}
-                            <a class="gh-button" href="#/portal/signup" data-portal="signup">{{t "Newsletter"}}</a>
-                        {{else}}
-                            <a class="gh-button" href="#/portal/signin" data-portal="signin">{{t "Sign in"}}</a>
-                        {{/unless}}
-                    {{else}}
-                        <a class="gh-button" href="#/portal/account" data-portal="account">{{t "Manage Subscription"}}</a>
-                    {{/unless}}
-                </div>
-            {{/unless}}
+            <a class="gh-button" target="_blank" rel="no-referer" href="https://www.linksjugend-solid.de/mitglied-werden/">
+                <span>Werde Mitglied</span>
+            </a>
         </div>
 
     </div>
