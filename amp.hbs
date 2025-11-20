@@ -779,25 +779,24 @@
     }
 
     .kg-header-card a.kg-header-card-button {
-        display: flex;
-        position: static;
+        display: inline-flex;
+        gap: 0.4em;
         align-items: center;
-        padding: 0 1.2em;
-        height: 2.4em;
-        line-height: 1em;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-        font-size: 0.95em;
+        justify-content: center;
+        padding: 0.8em 1.4em;
+        font-size: 1.5rem;
         font-weight: 600;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: opacity 0.2s ease-in-out;
+        letter-spacing: -0.004em;
+        line-height: 1;
+        color: var(--color-white);
+        cursor: pointer;
         background-color: var(--ghost-accent-color);
-        color: #ffffff;
-        margin: 1.75em 0 0;
+        border: 0;
+        border-radius: 100px;
     }
 
     .kg-header-card a.kg-header-card-button:hover {
-        opacity: 0.85;
+        opacity: 0.95;
     }
 
     .kg-header-card.kg-size-large a.kg-header-card-button {
@@ -1032,7 +1031,7 @@
             </header>
             {{#if feature_image}}
             <figure class="post-image">
-                <amp-img src="{{img_url feature_image absolute="true" size="m"}}" width="600" height="340" layout="responsive" 
+                <amp-img src="{{img_url feature_image absolute="true" size="m"}}" width="600" height="340" layout="responsive"
                 alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
                 ></amp-img>
             </figure>
