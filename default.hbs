@@ -54,6 +54,14 @@
 
         {{> "components/navigation" navigationLayout=@custom.navigation_layout}}
 
+        {{#is "index"}}
+            {{#get "pages" filter="slug:start" limit="1"}}
+                {{#foreach pages}}
+                    {{> "page"}}
+                {{/foreach}}
+            {{/get}}
+        {{/is}}
+
         {{{body}}}
 
         {{> "components/footer"}}

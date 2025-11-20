@@ -51,7 +51,9 @@ function hbs(done) {
 function css(done) {
     pump(
         [
-            src(["assets/css/screen.css", "assets/css/fonts/gilroy.css"], { sourcemaps: true }),
+            src(["assets/css/screen.css", "assets/css/fonts/gilroy.css"], {
+                sourcemaps: true,
+            }),
             postcss([easyimport, autoprefixer(), cssnano()]),
             dest("assets/built/", { sourcemaps: "." }),
             livereload(),
@@ -131,16 +133,16 @@ function critical(done) {
         },
         {
             name: "page",
-            url: "https://do.nrw.linksjugend-solid.de/about_us/"
+            url: "https://do.nrw.linksjugend-solid.de/about_us/",
         },
         {
             name: "tag",
-            url: "https://do.nrw.linksjugend-solid.de/tag/article/"
+            url: "https://do.nrw.linksjugend-solid.de/tag/article/",
         },
         {
             name: "index",
-            url: "https://do.nrw.linksjugend-solid.de/"
-        }
+            url: "https://do.nrw.linksjugend-solid.de/",
+        },
     ];
 
     categories.forEach((category) => {
@@ -157,7 +159,6 @@ function js(done) {
                     "assets/js/*.js",
                     "!assets/js/lib/opentype.js", // exclude opentype.js
                     "!assets/js/lib/text-to-svg.js", // exclude text-to-svg.js
-                    "!assets/js/dielinke-logo-generator.js", // exclude dielinke-logo-generator.js
                 ],
                 { sourcemaps: true }
             ),
@@ -172,15 +173,9 @@ function js(done) {
     // handle dielinke-logo-generator.js seperately
     pump(
         [
-            src(
-                [
-                    "assets/js/lib/opentype.js",
-                    "assets/js/lib/text-to-svg.js",
-                    "assets/js/dielinke-logo-generator.js",
-                ],
-                { sourcemaps: true }
-            ),
-            concat("dielinke-logo-generator.js"),
+            src(["assets/js/lib/opentype.js", "assets/js/lib/text-to-svg.js"], {
+                sourcemaps: true,
+            }),
             uglify(),
             dest("assets/built/", { sourcemaps: "." }),
             livereload(),
