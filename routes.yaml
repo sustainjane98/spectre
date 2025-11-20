@@ -1,7 +1,4 @@
 routes:
-  /: 
-    template: page
-    data: page.start
   /blog/rss/:
     template: rss
     content_type: text/xml

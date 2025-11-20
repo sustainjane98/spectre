@@ -1,0 +1,24 @@
+<article class="gh-article">
+
+    {{!-- Always show title and content for debugging --}}
+    {{#if title}}
+        {{#unless (match title "Untitled")}}
+    <header class="gh-article-header gh-canvas">
+            <h1 class="gh-article-title is-title">{{title}}</h1>
+        {{#if custom_excerpt}}
+            <p class="gh-article-excerpt is-body">{{custom_excerpt}}</p>
+        {{/if}}
+        {{#if feature_image}}
+            {{> "feature-image"}}
+        {{/if}}
+    </header>
+        {{/unless}}
+    {{/if}}
+
+    <section class="gh-content gh-canvas is-body">
+        {{content}}
+    </section>
+
+    <p class="print print-notice">{{t "Page printed at {date}. Please see {url} for the latest version." date=(date "") url=(url absolute="true")}}</p>
+
+</article>

@@ -186,6 +186,13 @@ function js(done) {
 
 function zipper(done) {
     const filename = require("./package.json").name + ".zip";
+    const filepath = path.join("dist", filename);
+
+    // Remove old zip file if it exists
+    if (fs.existsSync(filepath)) {
+        fs.unlinkSync(filepath);
+    }
+
     pump(
         [
             src([
