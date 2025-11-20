@@ -21,6 +21,8 @@
             xs"}} 1x, {{img_url @site.logo size="s" }} 2x"> --}}
         {{/if}}
 
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
         {{!-- defer loading of uncritical css --}}
         <link rel="preload" as="style" href="{{asset "built/screen.css"}}"
             onload="this.onload=null;this.rel='stylesheet'">
