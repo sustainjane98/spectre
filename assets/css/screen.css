@@ -397,7 +397,9 @@ a:hover {
     opacity: 0.8;
 }
 
-.gh-button {
+.gh-button,
+.kg-header-card.kg-v2.kg-header-card.kg-v2
+    .kg-header-card-button.kg-header-card-button {
     display: inline-flex;
     gap: 0.4em;
     align-items: center;
@@ -4354,4 +4356,26 @@ main:has(article.tag-hash-pressemitteilung) + .gh-recommended-posts {
     font-size: clamp(1.2rem, 2vw, 1.4rem);
     font-weight: 500;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+}
+
+@media (max-width: 640px) {
+    .kg-header-card {
+        margin-top: 60px;
+    }
+}
+
+/* Alternative approach using CSS custom properties */
+svg {
+    --svg-preserve-colors: true;
+}
+
+/* Ensure SVG colors are never inverted */
+@media (prefers-color-scheme: dark) and (-webkit-min-device-pixel-ratio: 2) {
+    /* Target high-DPI devices (like iPhone 14 Pro Max) */
+    svg {
+        filter: none !important;
+        -webkit-filter: none !important;
+        color-scheme: light !important;
+        forced-color-adjust: none !important;
+    }
 }

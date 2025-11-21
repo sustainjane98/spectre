@@ -1,24 +1,7 @@
 routes:
-  /blog/rss/:
-    template: rss
-    content_type: text/xml
-  /sitemap/:
-    template: sitemap
-    content_type: text/xml
-
-collections:
-  /presse/mitteilungen/:
-    permalink: /presse/mitteilungen/{year}/{slug}/
-    template: search-pressemitteilungen
-    filter: 'tag:hash-pressemitteilung'
-  /termine/archiv/:
-    permalink: /termine/{year}/{slug}/
-    template: search-termine
-    filter: 'tag:hash-termin'
-  /blog/:
-    permalink: /blog/{slug}/
-    template: home
-
-taxonomies:
-  tag: /tag/{slug}/
-  author: /autor_in/{slug}/
+    /:
+        template: page
+        data: page.start
+    /appointments/:
+        template: appointments-nextcloud
+        content_type: text/html

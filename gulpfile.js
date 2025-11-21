@@ -159,6 +159,7 @@ function js(done) {
                     "assets/js/*.js",
                     "!assets/js/lib/opentype.js", // exclude opentype.js
                     "!assets/js/lib/text-to-svg.js", // exclude text-to-svg.js
+                    "!assets/js/customize-nextcloud-apppointments.js", // exclude customize script
                 ],
                 { sourcemaps: true }
             ),
